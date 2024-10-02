@@ -138,7 +138,7 @@ class _CushomeState extends State<Cushome> {
                       if (!mapprovider.loading) _initializeLocation();
                     },
                     child: Text(
-                      'pick current location',
+                      'Pick current location',
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     )),
@@ -188,8 +188,9 @@ class _CushomeState extends State<Cushome> {
                                       height: 130,
                                       width: double.infinity,
                                       fit: BoxFit.cover,
-                                      errorBuilder: (context, error, stackTrace) =>
-                                    Icon(Icons.error),
+                                      errorBuilder:
+                                          (context, error, stackTrace) =>
+                                              Icon(Icons.error),
                                     ),
                                   ),
                                 ),

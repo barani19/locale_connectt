@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:locale_connectt/pages/users/Shop.dart';
-import 'package:locale_connectt/pages/users/itempage.dart';
 import 'package:locale_connectt/utils/textfield.dart';
 
 class SearchPage extends StatefulWidget {
@@ -115,7 +114,8 @@ class _SearchPageState extends State<SearchPage> {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                             child: GestureDetector(
-                              onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => widget.pdt ?  ItemPage(iname: iname, lat: widget.lat,long: widget.long,) : ShopApp(shop: products[index]),)),
+                              onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (_)=>ShopApp(shop: products[index]))),
+                              // onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => widget.pdt ?  ItemPage(iname: iname, lat: widget.lat,long: widget.long,) : ShopApp(shop: products[index]),)),
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 5,),
                                 child: Container(

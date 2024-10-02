@@ -162,39 +162,62 @@ class _CartPageState extends State<CartPage> {
             },
           ),
           Positioned(
-            bottom: 90,
-            right: 1,
-            left: 1,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromARGB(255, 56, 56, 56), blurRadius: 5)
-                    ],
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30)),
-                padding: EdgeInsets.only(top: 15, left: 20),
-                height: 100,
-                width: MediaQuery.of(context).size.width,
+              bottom: 90,
+              right: 1,
+              left: 1,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Text(
-                        'TOTAL: Rs.$total',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                    Container(
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                offset: Offset(-4, 4),
+                                color: Color.fromARGB(255, 152, 152, 152),
+                                blurRadius: 5)
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomLeft: Radius.circular(20))),
+                      padding: EdgeInsets.only(top: 15, left: 20),
+                      height: 90,
+                      width: 200,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20),
+                            child: Text(
+                              'TOTAL: Rs.$total',
+                              style: TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
+                    Container(
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                offset: Offset(0, 4),
+                                color: Color.fromARGB(255, 152, 152, 152),
+                                blurRadius: 5)
+                          ],
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20))),
+                      padding: EdgeInsets.only(
+                        top: 7,
+                      ),
+                      height: 90,
+                      width: 130,
+                      child: TextButton(
+                          style: TextButton.styleFrom(
                             foregroundColor: Colors.white,
                           ),
                           onPressed: () async {
@@ -239,7 +262,7 @@ class _CartPageState extends State<CartPage> {
 
                               // Add the new order entry to the vendor's current orders
                               vendorOrders.add(orderForVendor);
-                               print(vendorOrders);
+                              print(vendorOrders);
                               // Update the vendor document with the new list of orders
                               await vendorRef.update({
                                 'orders': vendorOrders,
@@ -267,18 +290,20 @@ class _CartPageState extends State<CartPage> {
                               });
                             }
 
-// Optionally clear the cart after processing the orders
+                            // Optionally clear the cart after processing the orders
 
                             Provider.of<Cartprovider>(context, listen: false)
                                 .removeall();
                           },
-                          child: Text('Order now')),
+                          child: Text(
+                            'Order now',
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          )),
                     ),
                   ],
                 ),
-              ),
-            ),
-          )
+              ))
         ]));
   }
 }
